@@ -1,6 +1,6 @@
-name: setup-helmfile
-description: 'Setup helmfile Action'
-author: "mamezou-tech"
+name: change-version-action
+description: 'Change version for helmfile'
+author: "dutchakdev"
 branding:
   icon: 'arrow-right-circle'
   color: 'purple'
