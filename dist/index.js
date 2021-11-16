@@ -6747,7 +6747,7 @@ async function changeServiceVersion(name, version, namespace) {
   console.log(`Reading version file ${versionFile}`);
   const versionData = readYaml(versionFile);
   console.log(`Set prev version output: ${versionData.image.tag}`); 
-  core.setOutput("previous-version", `${versionData.image.tag}`);
+  core.setOutput("previous_version", `${versionData.image.tag}`);
   versionData.image.tag = version;
   writeYaml(versionFile, versionData);
   console.log(`New version successfully set to ${version}`);
