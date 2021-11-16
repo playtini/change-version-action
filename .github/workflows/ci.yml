@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      service:
+        description: 'Service name'
+        required: true
+        default: 'all'
+      service_version:
+        description: 'Service version'
+        required: true
+        default: ''
+      namespace:
+        description: 'Namespace name'
+        required: false
+        default: ''
+
+jobs:
+  install_all_default:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: test
+      run: ls ./
+    - name: Setup helmfile
+      uses: ./
+      with:
+        service-name: ${{ github.event.inputs.service }} 
+        service-version: ${{ github.event.inputs.service_version }}
+        namespace: ${{ github.event.inputs.namespace }} 
+        

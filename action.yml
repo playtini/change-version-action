@@ -1,0 +1,19 @@
+name: setup-helmfile
+description: 'Setup helmfile Action'
+author: "mamezou-tech"
+branding:
+  icon: 'arrow-right-circle'
+  color: 'purple'
+inputs:
+  service-name:
+    description: "Service name in helmfiles/envs/{namespace}/services"
+    required: true
+  service-version:
+    description: "Service version"
+    required: true
+  namespace:
+    description: "Namespace"
+    required: true
+runs:
+  using: "node12"
+  main: "dist/index.js"

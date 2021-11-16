@@ -1,0 +1,8 @@
+{
+  "action": "workflow_dispatch",
+  "inputs": {
+      "service": "php-api-gateway",
+      "service_version": "v0.0.1001",
+      "namespace": "dev01"
+  }
+}
