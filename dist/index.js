@@ -6818,12 +6818,12 @@ const { changeServiceVersion } = __webpack_require__(543);
 
 async function run() {
   try {
-    const serviceName = core.getInput("service_name");
+    const serviceName = core.getInput("service");
     const serviceVersion = core.getInput("service_version");
     const namespace = core.getInput("namespace");
 
     if (serviceName && serviceVersion && namespace) {
-        changeServiceVersion(core.getInput("service"), core.getInput("service_version"), core.getInput("namespace"))
+        changeServiceVersion(serviceName, serviceVersion, namespace);
     } else {
         core.setFailed("Service name, version and namespace are required");
     }

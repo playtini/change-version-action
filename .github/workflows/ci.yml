@@ -26,7 +26,7 @@ jobs:
     - name: Setup helmfile
       uses: ./
       with:
-        service-name: ${{ github.event.inputs.service }} 
-        service-version: ${{ github.event.inputs.service_version }}
+        service: ${{ github.event.inputs.service }} 
+        service_version: ${{ github.event.inputs.service_version }}
         namespace: ${{ github.event.inputs.namespace }} 
         
