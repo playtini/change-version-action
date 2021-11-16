@@ -1,7 +1,7 @@
 const fs = require("fs");
 const yaml = require("yaml");
 
-const PATH_PATTERN = './helmfile/envs/{namespace}/services/{name}/version.yml';
+const PATH_PATTERN = './helmfile/envs/{namespace}/services/{name}/version.yaml';
 const core = require('@actions/core');
 
 async function changeServiceVersion(name, version, namespace) {

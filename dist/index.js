@@ -6734,7 +6734,7 @@ exports.HttpClient = HttpClient;
 const fs = __webpack_require__(747);
 const yaml = __webpack_require__(521);
 
-const PATH_PATTERN = './helmfile/envs/{namespace}/services/{name}/version.yml';
+const PATH_PATTERN = './helmfile/envs/{namespace}/services/{name}/version.yaml';
 const core = __webpack_require__(470);
 
 async function changeServiceVersion(name, version, namespace) {
