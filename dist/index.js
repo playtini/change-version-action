@@ -6736,8 +6736,6 @@ const yaml = __webpack_require__(521);
 
 const PATH_PATTERN = './helmfile/envs/{namespace}/services/{name}/version.yml';
 const core = __webpack_require__(470);
-// const github = require('@actions/github');
-
 
 async function changeServiceVersion(name, version, namespace) {
   console.log(`Changing service ${namespace}/${name} to version ${version}`);
@@ -6749,7 +6747,6 @@ async function changeServiceVersion(name, version, namespace) {
   versionData.image.tag = version;
   writeYaml(versionFile, versionData);
   console.log(`New version successfully set to ${version}`);
-  console.log(readYaml(versionFile))
 }
 
 // Reads a YAML file and returns the parsed data
@@ -6817,7 +6814,7 @@ const { changeServiceVersion } = __webpack_require__(543);
 
 async function run() {
   try {
-    changeServiceVersion(core.getInput("service-name"), core.getInput("service-version"), core.getInput("namespace"))
+    changeServiceVersion(core.getInput("service"), core.getInput("service_version"), core.getInput("namespace"))
   } catch (error) {
     core.setFailed(error.message);
   }

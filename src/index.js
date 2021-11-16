@@ -3,7 +3,7 @@ const { changeServiceVersion } = require("./utils");
 
 async function run() {
   try {
-    changeServiceVersion(core.getInput("service-name"), core.getInput("service-version"), core.getInput("namespace"))
+    changeServiceVersion(core.getInput("service"), core.getInput("service_version"), core.getInput("namespace"))
   } catch (error) {
     core.setFailed(error.message);
   }

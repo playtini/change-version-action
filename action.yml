@@ -5,10 +5,10 @@ branding:
   icon: 'arrow-right-circle'
   color: 'purple'
 inputs:
-  service-name:
+  service:
     description: "Service name in helmfiles/envs/{namespace}/services"
     required: true
-  service-version:
+  service_version:
     description: "Service version"
     required: true
   namespace:
