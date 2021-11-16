@@ -6740,6 +6740,10 @@ const core = __webpack_require__(470);
 async function changeServiceVersion(name, version, namespace) {
   console.log(`Changing service ${namespace}/${name} to version ${version}`);
   const versionFile = getPath(name, namespace);
+  if (!fs.fileExistsSync(versionFile)) {
+    core.setFailed(`Version file ${versionFile} not found`);
+    return;
+  }
   console.log(`Reading version file ${versionFile}`);
   const versionData = readYaml(versionFile);
   console.log(`Set prev version output: ${versionData.image.tag}`); 
@@ -6814,7 +6818,15 @@ const { changeServiceVersion } = __webpack_require__(543);
 
 async function run() {
   try {
-    changeServiceVersion(core.getInput("service"), core.getInput("service_version"), core.getInput("namespace"))
+    const serviceName = core.getInput("service_name");
+    const serviceVersion = core.getInput("service_version");
+    const namespace = core.getInput("namespace");
+
+    if (serviceName && serviceVersion && namespace) {
+        changeServiceVersion(core.getInput("service"), core.getInput("service_version"), core.getInput("namespace"))
+    } else {
+        core.setFailed("Service name, version and namespace are required");
+    }
   } catch (error) {
     core.setFailed(error.message);
   }
