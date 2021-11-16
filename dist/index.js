@@ -6740,7 +6740,7 @@ const core = __webpack_require__(470);
 async function changeServiceVersion(name, version, namespace) {
   console.log(`Changing service ${namespace}/${name} to version ${version}`);
   const versionFile = getPath(name, namespace);
-  if (!fs.fileExistsSync(versionFile)) {
+  if (!fs.existsSync(versionFile)) {
     core.setFailed(`Version file ${versionFile} not found`);
     return;
   }

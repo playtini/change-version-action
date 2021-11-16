@@ -6,7 +6,7 @@ branding:
   color: 'purple'
 inputs:
   service:
-    description: "Service name in helmfiles/envs/{namespace}/services"
+    description: "Service name in helmfiles/envs/{namespace}/services/{service}"
     required: true
   service_version:
     description: "Service version"
