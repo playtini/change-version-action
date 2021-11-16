@@ -7,6 +7,10 @@ const core = require('@actions/core');
 async function changeServiceVersion(name, version, namespace) {
   console.log(`Changing service ${namespace}/${name} to version ${version}`);
   const versionFile = getPath(name, namespace);
+  if (!fs.fileExistsSync(versionFile)) {
+    core.setFailed(`Version file ${versionFile} not found`);
+    return;
+  }
   console.log(`Reading version file ${versionFile}`);
   const versionData = readYaml(versionFile);
   console.log(`Set prev version output: ${versionData.image.tag}`); 
